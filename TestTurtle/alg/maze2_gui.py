@@ -5,12 +5,12 @@
 #####################################################################
 import turtle
 import math
-import alg.maze2
+import maze2
 #import alg.maze.map as maze_map
 
 # 更好的写法是通过这4个全局变量来设置坐标轴的显示范围
-GUI_X_MAX = alg.maze2.X_MAX + 1
-GUI_Y_MAX = alg.maze2.Y_MAX + 1
+GUI_X_MAX = maze2.X_MAX + 1
+GUI_Y_MAX = maze2.Y_MAX + 1
 GUI_X_MIN = 0
 GUI_Y_MIN = 0
 
@@ -97,56 +97,56 @@ def draw_an_arrow(x, y, angle, line_len, edge_len):
 
 # 迷宫列表中的行号和列号(r, c) 转换成海龟画图坐标中的(x, y)
 def convert_RC_to_XY(r, c):
-    return c, alg.maze2.Y_MAX - r
+    return c, maze2.Y_MAX - r
 
 
 # 海龟画图坐标中的(x, y) 转换成迷宫列表中的行号和列号(r, c)
 def convert_XY_to_RC(x, y):
-    return alg.maze2.Y_MAX - y, x
+    return maze2.Y_MAX - y, x
 
 
 # 由海龟画图坐标中的(x, y), 来获得迷宫列表中的(r, c)处的值
 def get_value_in_maze(x, y):
     r, c = convert_XY_to_RC(x, y)
-    return alg.maze2.map[r][c]
+    return maze2.map[r][c]
 
 
 # 更新海龟画图坐标中的(x, y)的图案
 def update_one_pos(x, y):
     val = get_value_in_maze(x, y)
-    if val == alg.maze2.BLOCK_MARK:
+    if val == maze2.BLOCK_MARK:
         draw_a_block(x, y, (0, 255, 0))
-    elif val == alg.maze2.RIGHT:
+    elif val == maze2.RIGHT:
         draw_an_arrow(x, y, 0, 0.3, 0.2)
-    elif val == alg.maze2.UP:
+    elif val == maze2.UP:
         draw_an_arrow(x, y, 90, 0.3, 0.2)
-    elif val == alg.maze2.LEFT:
+    elif val == maze2.LEFT:
         draw_an_arrow(x, y, 180, 0.3, 0.2)
-    elif val == alg.maze2.DOWN:
+    elif val == maze2.DOWN:
         draw_an_arrow(x, y, 270, 0.3, 0.2)
-    elif val == alg.maze2.PASS_MARK:
+    elif val == maze2.PASS_MARK:
         draw_a_block(x, y, (255, 255, 255))
-    elif val == alg.maze2.EXIT_MARK:
+    elif val == maze2.EXIT_MARK:
         draw_exit_mark(x, y)
 
 
 
 def repaint():
     #  如果迷宫算法还没有结束
-    if not alg.maze2.HAS_FINISHED:
+    if not maze2.HAS_FINISHED:
         # 关闭海龟动画
         my_screen.tracer(0)
         # 运行迷宫算法，只探索一步
-        alg.maze2.explore(alg.maze2.map, True)
+        maze2.explore(maze2.map, True)
         #
-        n = len(alg.maze2.stack)
+        n = len(maze2.stack)
         if n >= 2:
             i = 2
         elif n == 1:
             i = 1
         # 更新栈顶的1个或者2个位置
         while i > 0:
-            r, c = alg.maze2.stack[n - i]
+            r, c = maze2.stack[n - i]
             x, y = convert_RC_to_XY(r, c)
             update_one_pos(x, y)
             i -= 1
@@ -177,7 +177,7 @@ def init():
     # 允许海龟动画
     my_screen.tracer(1)
     # 初始化迷宫算法的栈
-    alg.maze2.stack.append((1, 0))
+    maze2.stack.append((1, 0))
 
 
 

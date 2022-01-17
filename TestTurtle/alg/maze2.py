@@ -4,6 +4,7 @@
 #
 #####################################################################
 # import util.clone
+import os
 
 X_MAX = 9
 Y_MAX = 9
@@ -151,6 +152,8 @@ def explore(map, loop_once=False):
 #     0x2192, 0x2193, 0x2190, 0x2191, 0x00D7, 0x270C))
 
 def main():
+    sub_dir = os.getcwd()
+    print(sub_dir)
     stack.append((1, 0))
     explore(map)
 

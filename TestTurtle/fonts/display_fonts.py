@@ -5,7 +5,7 @@
 #####################################################################
 
 import turtle
-from fonts.hz import *
+from hz import *
 import random
 
 
