@@ -1,7 +1,7 @@
 # PythonExamples
 Examples for kids to learn python programming.
 
-1. Please read TestTurtle/readme.pdf for an overview
+1. Please read readme.pdf for an overview
 
 2. How to Run
 
