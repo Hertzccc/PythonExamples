@@ -42,12 +42,18 @@ iron@CSE:TestTurtle$ python3 painter.py
 iron@CSE:TestTurtle$ python3 tgdz.py
 
 (13)
-iron@CSE:DIP$ python3 test_PIL.py
+iron@CSE:DIP$ python3 PIL_example.py
 
 (14)
-iron@CSE:game$ python3 tetris.py
+iron@CSE:DIP$ python3 CV2_example.py
 
 (15)
+iron@CSE:game$ python3 tetris.py
+
+(16)
 iron@CSE:TankWar$ python3 main.py
+
+(17)
+iron@CSE:OOP$ python3 phd.py
 
 
