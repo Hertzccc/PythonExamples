@@ -10,10 +10,10 @@ class Home(pygame.sprite.Sprite):  # 48 * 48
 		self.homes = ['./images/home/home1.png', './images/home/home2.png', './images/home/home_destroyed.png']
 		self.home = pygame.image.load(self.homes[0])
 		self.rect = self.home.get_rect()
-		self.rect.left, self.rect.top = (3 + 12 * 24, 3 + 24 * 24)
+		self.rect.left, self.rect.top = (3 + 12 * 24, 3 + 24 * 24) #放在最底部，中间，因为最多26*24+6，下面预留48+3
 		self.alive = True
 
 	# 大本营置为摧毁状态
 	def set_dead(self):
-		self.home = pygame.image.load(self.homes[-1])
+		self.home = pygame.image.load(self.homes[-1]) #直接调用最后一个摧毁的图片
 		self.alive = False

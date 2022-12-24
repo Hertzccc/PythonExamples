@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dc5cc629-21c6-4288-8387-1a22bab2f682" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/TankWar/scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/TankWar/scene.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankWar/tanks.py" beforeDir="false" afterPath="$PROJECT_DIR$/TankWar/tanks.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2JDyws06oqKXZioUY0ybH4Gpy4C" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dc5cc629-21c6-4288-8387-1a22bab2f682" name="Default Changelist" comment="" />
+      <created>1671627189722</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671627189722</updated>
+      <workItem from="1671627191110" duration="397000" />
+      <workItem from="1671627597684" duration="377000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="374" y="84" key="FileChooserDialogImpl" timestamp="1671627464553">
+      <screen x="0" y="25" width="1280" height="715" />
+    </state>
+    <state x="374" y="84" key="FileChooserDialogImpl/0.25.1280.715@0.25.1280.715" timestamp="1671627464553" />
+    <state x="31" y="25" key="SettingsEditor" timestamp="1671627761650">
+      <screen x="0" y="25" width="1280" height="715" />
+    </state>
+    <state x="31" y="25" key="SettingsEditor/0.25.1280.715@0.25.1280.715" timestamp="1671627761650" />
+  </component>
+</project>

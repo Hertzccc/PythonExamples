@@ -216,65 +216,65 @@ def handle_mybullet(stage_data, sound_data, screen):
 # 敌方子弹
 def handle_enemy_bullet(stage_data, sound_data, screen):
 	global is_gameover
-	for each in stage_data.enemytanksGroup:
-		if each.being:
-			# 敌方坦克可移动, 且未开火
-			if each.can_move and not each.bullet.being:
-				stage_data.enemybulletsGroup.remove(each.bullet)
-				# 敌方坦克开火, 将其炮弹的being设为True
-				each.shoot()
-				stage_data.enemybulletsGroup.add(each.bullet)
-			# 敌方坦克不是处于出生特效状态
-			if not each.born:
-				if each.bullet.being:
-					# 敌方子弹往前飞行, 更新位置后, 再重绘
-					each.bullet.move()
-					screen.blit(each.bullet.bullet, each.bullet.rect)
-					# 子弹碰撞我方坦克
-					for tank_player in stage_data.mytanksGroup:
-						if pygame.sprite.collide_rect(each.bullet, tank_player):
-							# 若坦克没有防护罩
-							if not tank_player.protected:
-								sound_data.bang_sound.play()
-								tank_player.life -= 1
-								if tank_player.life < 0:
-									stage_data.mytanksGroup.remove(tank_player)
-									stage_data.tanksGroup.remove(tank_player)
-									# 当双打时, 两个玩家中, 可能还有一个玩家仍然没有挂掉
-									# 只有两个玩家都挂掉后, 才game over
-									if len(stage_data.mytanksGroup) < 1:
-										is_gameover = True
-								else:
-									# 当还有可用坦克时, 重新复位一下当前玩家的坦克
-									tank_player.reset()
-							each.bullet.being = False
-							stage_data.enemybulletsGroup.remove(each.bullet)
-							break
-					# 子弹碰撞石头墙
-					if pygame.sprite.spritecollide(each.bullet, stage_data.map_stage.brickGroup, True, None):
-						each.bullet.being = False
-						stage_data.enemybulletsGroup.remove(each.bullet)
+	# for each in stage_data.enemytanksGroup:
+	# 	if each.being:
+	# 		# 敌方坦克可移动, 且未开火
+	# 		if each.can_move and not each.bullet.being:
+	# 			stage_data.enemybulletsGroup.remove(each.bullet)
+	# 			# 敌方坦克开火, 将其炮弹的being设为True
+	# 			each.shoot()
+	# 			stage_data.enemybulletsGroup.add(each.bullet)
+	# 		# 敌方坦克不是处于出生特效状态
+	# 		if not each.born:
+	# 			if each.bullet.being:
+	# 				# 敌方子弹往前飞行, 更新位置后, 再重绘
+	# 				each.bullet.move()
+	# 				screen.blit(each.bullet.bullet, each.bullet.rect)
+	# 				# 子弹碰撞我方坦克
+	# 				for tank_player in stage_data.mytanksGroup:
+	# 					if pygame.sprite.collide_rect(each.bullet, tank_player):
+	# 						# 若坦克没有防护罩
+	# 						if not tank_player.protected:
+	# 							sound_data.bang_sound.play()
+	# 							tank_player.life -= 1
+	# 							if tank_player.life < 0:
+	# 								stage_data.mytanksGroup.remove(tank_player)
+	# 								stage_data.tanksGroup.remove(tank_player)
+	# 								# 当双打时, 两个玩家中, 可能还有一个玩家仍然没有挂掉
+	# 								# 只有两个玩家都挂掉后, 才game over
+	# 								if len(stage_data.mytanksGroup) < 1:
+	# 									is_gameover = True
+	# 							else:
+	# 								# 当还有可用坦克时, 重新复位一下当前玩家的坦克
+	# 								tank_player.reset()
+	# 						each.bullet.being = False
+	# 						stage_data.enemybulletsGroup.remove(each.bullet)
+	# 						break
+	# 				# 子弹碰撞石头墙
+	# 				if pygame.sprite.spritecollide(each.bullet, stage_data.map_stage.brickGroup, True, None):
+	# 					each.bullet.being = False
+	# 					stage_data.enemybulletsGroup.remove(each.bullet)
 
-					# 子弹碰钢墙
-					if each.bullet.stronger:
-						if pygame.sprite.spritecollide(each.bullet, stage_data.map_stage.ironGroup, True, None):
-							each.bullet.being = False
-							# added, 2022.01.15
-							stage_data.enemybulletsGroup.remove(each.bullet)
-					else:
-						if pygame.sprite.spritecollide(each.bullet, stage_data.map_stage.ironGroup, False, None):
-							# added, 2022.01.15
-							each.bullet.being = False
-							stage_data.enemybulletsGroup.remove(each.bullet)
+	# 				# 子弹碰钢墙
+	# 				if each.bullet.stronger:
+	# 					if pygame.sprite.spritecollide(each.bullet, stage_data.map_stage.ironGroup, True, None):
+	# 						each.bullet.being = False
+	# 						# added, 2022.01.15
+	# 						stage_data.enemybulletsGroup.remove(each.bullet)
+	# 				else:
+	# 					if pygame.sprite.spritecollide(each.bullet, stage_data.map_stage.ironGroup, False, None):
+	# 						# added, 2022.01.15
+	# 						each.bullet.being = False
+	# 						stage_data.enemybulletsGroup.remove(each.bullet)
 
-					# 子弹碰大本营
-					if pygame.sprite.collide_rect(each.bullet, stage_data.myhome):
-						each.bullet.being = False
-						stage_data.myhome.set_dead()
-						is_gameover = True
-		else:
-			stage_data.enemytanksGroup.remove(each)
-			stage_data.tanksGroup.remove(each)
+	# 				# 子弹碰大本营
+	# 				if pygame.sprite.collide_rect(each.bullet, stage_data.myhome):
+	# 					each.bullet.being = False
+	# 					stage_data.myhome.set_dead()
+	# 					is_gameover = True
+	# 	else:
+	# 		stage_data.enemytanksGroup.remove(each)
+	# 		stage_data.tanksGroup.remove(each)
 
 
 def handle_food(stage_data, sound_data, screen):
