@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc5cc629-21c6-4288-8387-1a22bab2f682" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/TankWar/scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/TankWar/scene.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TankWar/tanks.py" beforeDir="false" afterPath="$PROJECT_DIR$/TankWar/tanks.py" afterDir="false" />
-    </list>
+    <list default="true" id="dc5cc629-21c6-4288-8387-1a22bab2f682" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,8 +24,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -41,6 +40,11 @@
       <updated>1671627189722</updated>
       <workItem from="1671627191110" duration="397000" />
       <workItem from="1671627597684" duration="377000" />
+      <workItem from="1671978552436" duration="43000" />
+      <workItem from="1671978628416" duration="42000" />
+      <workItem from="1671978677142" duration="14000" />
+      <workItem from="1671978699115" duration="471000" />
+      <workItem from="1671979217306" duration="95000" />
     </task>
     <servers />
   </component>
@@ -51,13 +55,23 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="374" y="84" key="FileChooserDialogImpl" timestamp="1671627464553">
-      <screen x="0" y="25" width="1280" height="715" />
+    <state x="99" y="32" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1671978817142">
+      <screen x="0" y="25" width="1280" height="712" />
     </state>
+    <state x="99" y="32" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1280.712@0.25.1280.712" timestamp="1671978817142" />
+    <state x="324" y="112" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1671978651187">
+      <screen x="0" y="25" width="1280" height="712" />
+    </state>
+    <state x="324" y="112" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.25.1280.712@0.25.1280.712" timestamp="1671978651187" />
+    <state x="374" y="84" key="FileChooserDialogImpl" timestamp="1671979017227">
+      <screen x="0" y="25" width="1280" height="712" />
+    </state>
+    <state x="374" y="84" key="FileChooserDialogImpl/0.25.1280.712@0.25.1280.712" timestamp="1671979017227" />
     <state x="374" y="84" key="FileChooserDialogImpl/0.25.1280.715@0.25.1280.715" timestamp="1671627464553" />
-    <state x="31" y="25" key="SettingsEditor" timestamp="1671627761650">
-      <screen x="0" y="25" width="1280" height="715" />
+    <state x="31" y="25" key="SettingsEditor" timestamp="1671979240160">
+      <screen x="0" y="25" width="1280" height="712" />
     </state>
+    <state x="31" y="25" key="SettingsEditor/0.25.1280.712@0.25.1280.712" timestamp="1671979240160" />
     <state x="31" y="25" key="SettingsEditor/0.25.1280.715@0.25.1280.715" timestamp="1671627761650" />
   </component>
 </project>

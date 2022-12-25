@@ -117,43 +117,47 @@ class Map():
         #     iron.being = True
         #     self.ironGroup.add(iron)
 
-        #加自己的名字陈子豪 czh
+        # 加自己的名字陈子豪 czh
         for x in [3, 4, 5, 6, 9, 10, 11, 12, 13, 14, 15, 18, 23]:
             for y in [1, 7]:
-                brick = Brick()
-                brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
-                brick.being = True
-                self.brickGroup.add(brick)
+                tree = Tree()
+                tree.rect.left, tree.rect.top = 3 + x * 12, 3 + y * 12
+                tree.being = True
+                self.treeGroup.add(tree)
 
         for x in [2, 6, 18, 23]:
             for y in [2, 6]:
-                brick = Brick()
-                brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
-                brick.being = True
-                self.brickGroup.add(brick)
+                tree = Tree()
+                tree.rect.left, tree.rect.top = 3 + x * 12, 3 + y * 12
+                tree.being = True
+                self.treeGroup.add(tree)
 
         for x in [1, 18, 23]:
             for y in [3, 5]:
-                brick = Brick()
-                brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
-                brick.being = True
-                self.brickGroup.add(brick)
+                tree = Tree()
+                tree.rect.left, tree.rect.top = 3 + x * 12, 3 + y * 12
+                tree.being = True
+                self.treeGroup.add(tree)
 
         for x in [1, 18, 19, 20, 21, 22, 23]:
             y = 4
-            brick = Brick()
-            brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
-            brick.being = True
-            self.brickGroup.add(brick)
+            tree = Tree()
+            tree.rect.left, tree.rect.top = 3 + x * 12, 3 + y * 12
+            tree.being = True
+            self.treeGroup.add(tree)
 
         for x in range(2, 7):
             for y in range(2, 7):
                 if x + y == 8:
                     x += 8
-                    brick = Brick()
-                    brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
-                    brick.being = True
-                    self.brickGroup.add(brick)
+                    # brick = Brick()
+                    # brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
+                    # brick.being = True
+                    # self.brickGroup.add(brick)
+                    tree = Tree()
+                    tree.rect.left, tree.rect.top = 3 + x * 12, 3 + y * 12
+                    tree.being = True
+                    self.treeGroup.add(tree)
     # 关卡二
 
     def stage2(self):

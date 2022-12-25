@@ -13,7 +13,7 @@ class myTank(pygame.sprite.Sprite):  # 48 * 48
         pygame.sprite.Sprite.__init__(self)
         # 玩家编号(1/2)
         self.player = player
-        # 不同玩家用不同的坦克(不同等级对应不同的图)
+        # 不同玩家用不同的坦克(不同等级对应不同的图)。
         if player == 1:
             self.tanks = ['./images/myTank/tank_T1_0.png',
                           './images/myTank/tank_T1_1.png', './images/myTank/tank_T1_2.png']
@@ -26,10 +26,11 @@ class myTank(pygame.sprite.Sprite):  # 48 * 48
         self.level = 0
         # 载入(两个tank是为了轮子特效, 因为两张tank图片的轮子履带处不同, 交替显示时, 会有履带在转动的效果)
         self.tank = pygame.image.load(self.tanks[self.level]).convert_alpha()
+        # 先将图像提取到子表面，然后draw出来，因为坦克图片要切割出来
         self.tank_0 = self.tank.subsurface((0, 0), (48, 48))
         self.tank_1 = self.tank.subsurface((48, 0), (48, 48))
         self.rect = self.tank_0.get_rect()
-        # 保护罩,  96*48的图片
+        # 保护罩,  96*48的图片，
         self.protected_mask = pygame.image.load(
             './images/others/protect.png').convert_alpha()
         self.protected_mask1 = self.protected_mask.subsurface((0, 0), (48, 48))
@@ -37,7 +38,7 @@ class myTank(pygame.sprite.Sprite):  # 48 * 48
             (48, 0), (48, 48))
         # 坦克方向, 默认向上
         self.direction_x, self.direction_y = 0, -1
-        # 不同玩家的出生位置不同
+        # 不同玩家的出生位置不同，player1在左边，player2在右边
         if player == 1:
             self.rect.left, self.rect.top = 3 + 24 * 8, 3 + 24 * 24
         elif player == 2:
@@ -56,16 +57,16 @@ class myTank(pygame.sprite.Sprite):  # 48 * 48
         # 子弹
         self.bullet = Bullet()
 
-    # 射击
+    # 射击，射击时设置子弹状态，检查坦克强度等级
     def shoot(self):
         # 在发出去的一发子弹, 没有到达边界以前, 不能再次发射
         self.bullet.being = True
         stronger = self.bullet.stronger
-        # 根据坦克的当前朝向和位置, 设置子弹的方向和位置, 子弹出现在坦克前方不远处
+        # 根据坦克的当前朝向和位置, 设置子弹的方向和位置, 子弹出现在坦克前方不远处，在子弹类中
         self.bullet.turn(self.direction_x, self.direction_y)
         if self.direction_x == 0 and self.direction_y == -1:   # UP
-            self.bullet.rect.left = self.rect.left + 20
-            self.bullet.rect.bottom = self.rect.top - 1
+            self.bullet.rect.left = self.rect.left + 20  # 调整到中间坦克喷嘴（左右方向
+            self.bullet.rect.bottom = self.rect.top - 1  # 相当于从坦克喷嘴出来（上下方向
         elif self.direction_x == 0 and self.direction_y == 1:  # DOWN
             self.bullet.rect.left = self.rect.left + 20
             self.bullet.rect.top = self.rect.bottom + 1
@@ -77,7 +78,7 @@ class myTank(pygame.sprite.Sprite):  # 48 * 48
             self.bullet.rect.top = self.rect.top + 20
         else:
             raise ValueError('myTank class -> direction value error.')
-        # 坦克的等级提升后, 子弹的速度会加快, 提到2级及以上等级后, 可碎钢板
+        # 坦克的等级提升后, 子弹的速度会加快, 提到2级及以上等级后, 可碎钢板，stronger
         if self.level == 0:
             self.bullet.speed = 8
             self.bullet.stronger = False
@@ -97,7 +98,7 @@ class myTank(pygame.sprite.Sprite):  # 48 * 48
             self.bullet.stronger = stronger
 
     # 等级提升
-    def up_level(self):
+    def up_level(self):  # 根据等级增长加载图片，越界了就加载最后一张图
         # if self.level < 3:    # Bug
         if self.level < 2:
             self.level += 1
@@ -119,7 +120,7 @@ class myTank(pygame.sprite.Sprite):  # 48 * 48
             self.speed * self.direction_x, self.speed * self.direction_y)
 
     # 撤销移动(通过反向移动来实现)
-    def undo_move(self):
+    def undo_move(self):  # 相当于上一个位移回去
         self.rect = self.rect.move(
             self.speed * -self.direction_x, self.speed * -self.direction_y)
 
@@ -151,41 +152,41 @@ class myTank(pygame.sprite.Sprite):  # 48 * 48
 
     def move_up(self, tankGroup, brickGroup, ironGroup, myhome):
         return self.do_move(tankGroup, brickGroup, ironGroup, myhome,
-                            0, -1,
-                            (0, 0), (48, 48),
-                            (48, 0), (48, 48))
+                            0, -1,  # dx，dy
+                            (0, 0), (48, 48),  # x0y0，w0h0 w:weight，h：height （1,1）
+                            (48, 0), (48, 48))  # x1y1，w1h1 (1,2)
 
     # 向下
     def move_down(self, tankGroup, brickGroup, ironGroup, myhome):
         return self.do_move(tankGroup, brickGroup, ironGroup, myhome,
                             0, 1,
-                            (0, 48), (48, 48),
-                            (48, 48), (48, 48))
+                            (0, 48), (48, 48),  # (2,1)
+                            (48, 48), (48, 48))  # (2,2)
 
     # 向左
     def move_left(self, tankGroup, brickGroup, ironGroup, myhome):
         return self.do_move(tankGroup, brickGroup, ironGroup, myhome,
                             -1, 0,
-                            (0, 96), (48, 48),
-                            (48, 96), (48, 48))
+                            (0, 96), (48, 48),  # (3,1)
+                            (48, 96), (48, 48))  # (3,2)
 
     # 向右
     def move_right(self, tankGroup, brickGroup, ironGroup, myhome):
         return self.do_move(tankGroup, brickGroup, ironGroup, myhome,
                             1, 0,
-                            (0, 144), (48, 48),
-                            (48, 144), (48, 48))
+                            (0, 144), (48, 48),  # (4,1)
+                            (48, 144), (48, 48))  # (4,2)
 
     # 死后重置, 我方坦克挂掉后, 重新复位
     def reset(self):
         self.level = 0
-        self.protected = False
+        self.protected = False  # 盾也没了
         self.tank = pygame.image.load(self.tanks[self.level]).convert_alpha()
         # 默认的坦克朝向为向上
         self.tank_0 = self.tank.subsurface((0, 0), (48, 48))
         self.tank_1 = self.tank.subsurface((48, 0), (48, 48))
         self.rect = self.tank_0.get_rect()
-        self.direction_x, self.direction_y = 0, -1
+        self.direction_x, self.direction_y = 0, -1  # 向上
         # 给不同的玩家不同的初始位置
         if self.player == 1:
             self.rect.left, self.rect.top = 3 + 24 * 8, 3 + 24 * 24
@@ -194,7 +195,7 @@ class myTank(pygame.sprite.Sprite):  # 48 * 48
         else:
             raise ValueError('myTank class -> player value error.')
         self.speed = 3
-        # 重置炮弹
+        # 重置炮弹，炮弹变弱了
         self.bullet.stronger = False
 
 
@@ -222,7 +223,7 @@ class enemyTank(pygame.sprite.Sprite):
                        './images/enemyTank/enemy_4_2.png', './images/enemyTank/enemy_4_3.png']
         self.tanks = [self.tanks1, self.tanks2, self.tanks3, self.tanks4]
         # 是否携带食物(红色的坦克携带食物)
-        if is_red is None:
+        if is_red is None:  # 1/5的概率
             self.is_red = random.choice((True, False, False, False, False))
         else:
             self.is_red = is_red
@@ -288,7 +289,7 @@ class enemyTank(pygame.sprite.Sprite):
         self.rect = self.rect.move(
             self.speed * -self.direction_x, self.speed * -self.direction_y)
 
-    # 生成随机方向
+    # 生成随机方向（上，下，左，右）
     def random_direction(self):
         self.direction_x, self.direction_y = random.choice(
             ([0, 1], [0, -1], [1, 0], [-1, 0]))
