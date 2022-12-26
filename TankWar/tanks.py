@@ -52,7 +52,7 @@ class myTank(pygame.sprite.Sprite):  # 48 * 48
         self.life = 3
         # 是否处于保护状态, 把此变量设为True, 可进入作弊模式, 让我方坦克处于防弹状态
         # 问题（4） 答案： 这个变量 self.protected = True 即可进入作弊
-        self.protected = False
+        self.protected = True
         # 子弹
         self.bullet = Bullet()
 

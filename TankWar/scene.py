@@ -77,121 +77,121 @@ class Map():
     # 关卡一
 
     def stage1(self):  # 630 * 630;    630 = 24 * 26 + 6 = 24 * 26 + 3 * 2 一排或一列能放 26个 brick
-        # for x in [2, 3, 6, 7, 18, 19, 22, 23]:
-        #     for y in [2, 3, 4, 5, 6, 7, 8, 9, 10, 17, 18, 19, 20, 21, 22, 23]:
-        #         brick = Brick()
-        #         brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
-        #         brick.being = True
-        #         self.brickGroup.add(brick)
-        # for x in [10, 11, 14, 15]:
-        #     for y in [2, 3, 4, 5, 6, 7, 8, 11, 12, 15, 16, 17, 18, 19, 20]:
-        #         brick = Brick()
-        #         brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
-        #         brick.being = True
-        #         self.brickGroup.add(brick)
-
-        # for x in [4, 5, 6, 7, 18, 19, 20, 21]:
-        #     for y in [13, 14]:
-        #         brick = Brick()
-        #         brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
-        #         brick.being = True
-        #         self.brickGroup.add(brick)
-        # for x in [12, 13]:
-        #     for y in [16, 17]:
-        #         brick = Brick()
-        #         brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
-        #         brick.being = True
-        #         self.brickGroup.add(brick)
-        # for x, y in [(11, 23), (12, 23), (13, 23), (14, 23), (11, 24), (14, 24), (11, 25), (14, 25)]:
-        #     brick = Brick()
-        #     brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
-        #     brick.being = True
-        #     self.brickGroup.add(brick)
-
-        # # 作弊模式: 司令部总是被钢板保护
-        self.protect_home()
-
-        # for x, y in [(0, 14), (1, 14), (12, 6), (13, 6), (12, 7), (13, 7), (24, 14), (25, 14)]:
-        #     iron = Iron()
-        #     iron.rect.left, iron.rect.top = 3 + x * 24, 3 + y * 24
-        #     iron.being = True
-        #     self.ironGroup.add(iron)
-
-        #加自己的名字陈子豪 czh
-        for x in [3, 4, 5, 6, 9, 10, 11, 12, 13, 14, 15, 18, 23]:
-            for y in [1, 7]:
+        for x in [2, 3, 6, 7, 18, 19, 22, 23]:
+            for y in [2, 3, 4, 5, 6, 7, 8, 9, 10, 17, 18, 19, 20, 21, 22, 23]:
+                brick = Brick()
+                brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
+                brick.being = True
+                self.brickGroup.add(brick)
+        for x in [10, 11, 14, 15]:
+            for y in [2, 3, 4, 5, 6, 7, 8, 11, 12, 15, 16, 17, 18, 19, 20]:
                 brick = Brick()
                 brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
                 brick.being = True
                 self.brickGroup.add(brick)
 
-        for x in [2, 6, 18, 23]:
-            for y in [2, 6]:
+        for x in [4, 5, 6, 7, 18, 19, 20, 21]:
+            for y in [13, 14]:
                 brick = Brick()
                 brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
                 brick.being = True
                 self.brickGroup.add(brick)
-
-        for x in [1, 18, 23]:
-            for y in [3, 5]:
+        for x in [12, 13]:
+            for y in [16, 17]:
                 brick = Brick()
                 brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
                 brick.being = True
                 self.brickGroup.add(brick)
-
-        for x in [1, 18, 19, 20, 21, 22, 23]:
-            y = 4
+        for x, y in [(11, 23), (12, 23), (13, 23), (14, 23), (11, 24), (14, 24), (11, 25), (14, 25)]:
             brick = Brick()
             brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
             brick.being = True
             self.brickGroup.add(brick)
 
-        for x in range(2, 7):
-            for y in range(2, 7):
-                if x + y == 8:
-                    x += 8
-                    brick = Brick()
-                    brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
-                    brick.being = True
-                    self.brickGroup.add(brick)
+        # 作弊模式: 司令部总是被钢板保护
+        self.protect_home()
+
+        for x, y in [(0, 14), (1, 14), (12, 6), (13, 6), (12, 7), (13, 7), (24, 14), (25, 14)]:
+            iron = Iron()
+            iron.rect.left, iron.rect.top = 3 + x * 24, 3 + y * 24
+            iron.being = True
+            self.ironGroup.add(iron)
+
+        # 加自己的名字陈子豪 czh
+        # for x in [3, 4, 5, 6, 9, 10, 11, 12, 13, 14, 15, 18, 23]:
+        #     for y in [1, 7]:
+        #         brick = Brick()
+        #         brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
+        #         brick.being = True
+        #         self.brickGroup.add(brick)
+
+        # for x in [2, 6, 18, 23]:
+        #     for y in [2, 6]:
+        #         brick = Brick()
+        #         brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
+        #         brick.being = True
+        #         self.brickGroup.add(brick)
+
+        # for x in [1, 18, 23]:
+        #     for y in [3, 5]:
+        #         brick = Brick()
+        #         brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
+        #         brick.being = True
+        #         self.brickGroup.add(brick)
+
+        # for x in [1, 18, 19, 20, 21, 22, 23]:
+        #     y = 4
+        #     brick = Brick()
+        #     brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
+        #     brick.being = True
+        #     self.brickGroup.add(brick)
+
+        # for x in range(2, 7):
+        #     for y in range(2, 7):
+        #         if x + y == 8:
+        #             x += 8
+        #             brick = Brick()
+        #             brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
+        #             brick.being = True
+        #             self.brickGroup.add(brick)
     # 关卡二
 
     def stage2(self):
         self.stage1()
-        # for x in [2, 3, 6, 7, 18, 19, 22, 23]:
-        # 	for y in [2, 3, 4, 5, 6, 7, 8, 9, 10, 17, 18, 19, 20, 21, 22, 23]:
-        # 		brick = Brick()
-        # 		brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
-        # 		brick.being = True
-        # 		self.brickGroup.add(brick)
-        # for x in [10, 11, 14, 15]:
-        # 	for y in [2, 3, 4, 5, 6, 7, 8, 11, 12, 15, 16, 17, 18, 19, 20]:
-        # 		brick = Brick()
-        # 		brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
-        # 		brick.being = True
-        # 		self.brickGroup.add(brick)
-        # for x in [4, 5, 6, 7, 18, 19, 20, 21]:
-        # 	for y in [13, 14]:
-        # 		brick = Brick()
-        # 		brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
-        # 		brick.being = True
-        # 		self.brickGroup.add(brick)
-        # for x in [12, 13]:
-        # 	for y in [16, 17]:
-        # 		brick = Brick()
-        # 		brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
-        # 		brick.being = True
-        # 		self.brickGroup.add(brick)
-        # for x, y in [(11, 23), (12, 23), (13, 23), (14, 23), (11, 24), (14, 24), (11, 25), (14, 25)]:
-        # 	brick = Brick()
-        # 	brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
-        # 	brick.being = True
-        # 	self.brickGroup.add(brick)
-        # for x, y in [(0, 14), (1, 14), (12, 6), (13, 6), (12, 7), (13, 7), (24, 14), (25, 14)]:
-        # 	iron = Iron()
-        # 	iron.rect.left, iron.rect.top = 3 + x * 24, 3 + y * 24
-        # 	iron.being = True
-        # 	self.ironGroup.add(iron)
+        for x in [2, 3, 6, 7, 18, 19, 22, 23]:
+            for y in [2, 3, 4, 5, 6, 7, 8, 9, 10, 17, 18, 19, 20, 21, 22, 23]:
+                brick = Brick()
+                brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
+                brick.being = True
+                self.brickGroup.add(brick)
+        for x in [10, 11, 14, 15]:
+            for y in [2, 3, 4, 5, 6, 7, 8, 11, 12, 15, 16, 17, 18, 19, 20]:
+                brick = Brick()
+                brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
+                brick.being = True
+                self.brickGroup.add(brick)
+        for x in [4, 5, 6, 7, 18, 19, 20, 21]:
+            for y in [13, 14]:
+                brick = Brick()
+                brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
+                brick.being = True
+                self.brickGroup.add(brick)
+        for x in [12, 13]:
+            for y in [16, 17]:
+                brick = Brick()
+                brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
+                brick.being = True
+                self.brickGroup.add(brick)
+        for x, y in [(11, 23), (12, 23), (13, 23), (14, 23), (11, 24), (14, 24), (11, 25), (14, 25)]:
+            brick = Brick()
+            brick.rect.left, brick.rect.top = 3 + x * 24, 3 + y * 24
+            brick.being = True
+            self.brickGroup.add(brick)
+        for x, y in [(0, 14), (1, 14), (12, 6), (13, 6), (12, 7), (13, 7), (24, 14), (25, 14)]:
+            iron = Iron()
+            iron.rect.left, iron.rect.top = 3 + x * 24, 3 + y * 24
+            iron.being = True
+            self.ironGroup.add(iron)
 
     def protect_home(self):
         for x, y in [(11, 23), (12, 23), (13, 23), (14, 23), (11, 24), (14, 24), (11, 25), (14, 25)]:
