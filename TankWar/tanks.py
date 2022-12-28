@@ -52,7 +52,7 @@ class myTank(pygame.sprite.Sprite):  # 48 * 48
         self.life = 3
         # 是否处于保护状态, 把此变量设为True, 可进入作弊模式, 让我方坦克处于防弹状态
         # 问题（4） 答案： 这个变量 self.protected = True 即可进入作弊
-        self.protected = False
+        self.protected = True
         # 子弹
         self.bullet = Bullet()
 
@@ -226,6 +226,7 @@ class enemyTank(pygame.sprite.Sprite):
             self.is_red = random.choice((True, False, False, False, False))
         else:
             self.is_red = is_red
+
         # added
         #self.is_red = True
         # 同一种类的坦克具有不同的颜色, 红色的坦克比同类坦克多一点血量

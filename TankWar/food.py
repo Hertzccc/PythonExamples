@@ -9,20 +9,20 @@ class Food(pygame.sprite.Sprite):
     def __init__(self):
         # 先调用父类构造方法
         pygame.sprite.Sprite.__init__(self)
-        # 消灭当前所有敌人
+        # a消灭当前所有敌人
         self.food_bomb = './images/food/food_bomb.png'
-        # 当前所有敌人静止一段时间
+        # a当前所有敌人静止一段时间
         self.food_clock = './images/food/food_clock.png'
         # 使得坦克子弹可碎钢板
         self.food_gun = './images/food/food_gun.png'
-        # 使得大本营的墙变为钢板
+        # a使得大本营的墙变为钢板
         # self.food_iron = './images/food/food_gun.png'    # BUG
         self.food_iron = './images/food/food_iron.png'
-        # 坦克获得一段时间的保护罩
+        # a坦克获得一段时间的保护罩
         self.food_protect = './images/food/food_protect.png'
-        # 坦克升级
+        # a坦克升级
         self.food_star = './images/food/food_star.png'
-        # 坦克生命+1
+        # a坦克生命+1
         self.food_tank = './images/food/food_tank.png'
         # 所有食物
         self.foods = [self.food_bomb, self.food_clock, self.food_gun,
